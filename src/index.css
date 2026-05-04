@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+
+  /* Natural Tones Palette */
+  --color-olive: #5A5A40;
+  --color-olive-light: #7A7A5F;
+  --color-wood: #8D7456;
+  --color-cream: #F5F2ED;
+  --color-cream-light: #F9F7F2;
+  --color-dark-earth: #2D2A26;
+  --color-white-warm: #FFFFFF;
+
+  --shadow-soft: 0 10px 30px -15px rgba(90, 90, 64, 0.15);
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-dark-earth transition-colors duration-500;
+  }
+  
+  h1, h2, h3, h4, .serif {
+    @apply font-serif;
+  }
+
+  .dark body {
+    @apply bg-dark-earth text-cream-light;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-olive text-white-warm px-8 py-3 rounded-full hover:bg-olive-light transition-all duration-300 tracking-[0.15em] uppercase text-[10px] font-bold shadow-lg shadow-olive/10;
+  }
+
+  .btn-outline {
+    @apply border border-olive text-olive px-8 py-3 rounded-full hover:bg-olive hover:text-white-warm transition-all duration-300 tracking-[0.15em] uppercase text-[10px] font-bold;
+  }
+
+  .glass-card {
+    @apply bg-white-warm/80 dark:bg-black/20 backdrop-blur-md border border-white/20 rounded-[2rem] p-8 shadow-soft;
+  }
+
+  .image-placeholder {
+    @apply bg-[#E2DFD8] relative overflow-hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F2ED;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-olive/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-olive/50;
+}
