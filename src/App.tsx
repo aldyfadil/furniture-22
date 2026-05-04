@@ -32,44 +32,44 @@ const SANS_FONTS = "font-sans";
 const PRODUCTS = [
   {
     id: 1,
-    name: "The Terra Lounge",
-    description: "Handcrafted from salvaged oak and organic linen.",
-    price: "$1,240",
+    name: "Terra Lounge",
+    description: "Dikerjakan dengan tangan dari kayu ek pilihan dan linen organik.",
+    price: "Rp 18.500.000",
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=800",
     texture: "https://images.unsplash.com/photo-1516147343209-787095689100?q=80&w=800",
-    tag: "Signature"
+    tag: "Unggulan"
   },
   {
     id: 2,
-    name: "Driftwood Console",
-    description: "Sustainably sourced with a natural live-edge finish.",
-    price: "$890",
+    name: "Konsol Driftwood",
+    description: "Bersumber secara berkelanjutan dengan sentuhan alami live-edge.",
+    price: "Rp 12.900.000",
     image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800",
     texture: "https://images.unsplash.com/photo-1505691938895-1758d7eaa511?q=80&w=800",
-    tag: "Bestseller"
+    tag: "Terlaris"
   },
   {
     id: 3,
-    name: "Bamboo Haven Shelf",
-    description: "Vertical modular storage for the modern eco-home.",
-    price: "$450",
+    name: "Rak Bamboo Haven",
+    description: "Penyimpanan vertikal modular untuk rumah modern ramah lingkungan.",
+    price: "Rp 6.750.000",
     image: "https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?q=80&w=800",
     texture: "https://images.unsplash.com/photo-1616489953149-8c7639199347?q=80&w=800",
-    tag: "New"
+    tag: "Terbaru"
   }
 ];
 
 const MATERIALS = [
-  { name: "Solid Wood", icon: TreePine, desc: "FSC certified sustainable timber." },
-  { name: "Bamboo", icon: Wind, desc: "Fast-growing carbon positive material." },
-  { name: "Eco Fabric", icon: Layers, desc: "Recycled fibers and organic cotton." }
+  { name: "Kayu Solid", icon: TreePine, desc: "Kayu berkelanjutan bersertifikat FSC." },
+  { name: "Bambu", icon: Wind, desc: "Material cepat tumbuh dengan dampak karbon positif." },
+  { name: "Kain Eco", icon: Layers, desc: "Serat daur ulang dan katun organik." }
 ];
 
 const ROOMS = [
-  { title: "Living Sanctuary", image: "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?q=80&w=1200", size: "tall" },
-  { title: "Quiet Workspace", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000", size: "wide" },
-  { title: "Restful Retreatment", image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200", size: "square" },
-  { title: "Natural Dining", image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=1000", size: "tall" }
+  { title: "Ruang Tamu Alami", image: "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?q=80&w=1200", size: "tall" },
+  { title: "Ruang Kerja Tenang", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000", size: "wide" },
+  { title: "Kamar Tidur Nyaman", image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200", size: "square" },
+  { title: "Ruang Makan Organik", image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=1000", size: "tall" }
 ];
 
 // --- Components ---
@@ -98,7 +98,7 @@ const Navbar = ({ isDark, setIsDark, isSoundOn, setIsSoundOn }) => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-10">
-          {['Collection', 'Philosophy', 'Spaces', 'Store'].map((item) => (
+          {['Koleksi', 'Filosofi', 'Ruang', 'Toko'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] uppercase tracking-[0.2em] font-bold opacity-60 hover:opacity-100 hover:text-olive transition-all">
               {item}
             </a>
@@ -106,11 +106,14 @@ const Navbar = ({ isDark, setIsDark, isSoundOn, setIsSoundOn }) => {
         </div>
 
         <div className="flex items-center space-x-4">
+          <button onClick={() => setIsSoundOn(!isSoundOn)} className="p-2 hover:bg-olive/5 rounded-full text-olive transition-colors hidden sm:block">
+            {isSoundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+          </button>
           <button onClick={() => setIsDark(!isDark)} className="p-2 hover:bg-olive/5 rounded-full text-olive transition-colors">
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button className="btn-outline !px-6 !py-2 hidden md:block">
-            Contact
+            Kontak
           </button>
           <button onClick={() => setMobileMenuOpen(true)} className="md:hidden p-2 text-olive">
             <Menu size={24} />
@@ -131,7 +134,7 @@ const Navbar = ({ isDark, setIsDark, isSoundOn, setIsSoundOn }) => {
               <button onClick={() => setMobileMenuOpen(false)}><X size={32} /></button>
             </div>
             <div className="flex flex-col space-y-8 mt-12">
-              {['Collection', 'Philosophy', 'Spaces', 'Store'].map((item) => (
+              {['Koleksi', 'Filosofi', 'Ruang', 'Toko'].map((item) => (
                 <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMobileMenuOpen(false)} className="text-4xl font-serif">
                   {item}
                 </a>
@@ -149,7 +152,7 @@ const Hero = () => {
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section className="relative h-[85vh] md:h-screen flex items-center overflow-hidden mx-6 mt-6 rounded-[2.5rem] mt-32 md:mt-24">
+    <section className="relative h-[85vh] md:h-screen flex items-center overflow-hidden mx-6 rounded-[2.5rem] mt-32 md:mt-24">
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 image-placeholder">
           <img 
@@ -171,28 +174,28 @@ const Hero = () => {
         >
           <div className="flex items-center gap-2 mb-6">
             <div className="w-10 h-[1px] bg-white/40"></div>
-            <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-80">Sustainable Living</span>
+            <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-80">Hunian Berkelanjutan</span>
           </div>
           <h1 className="text-6xl md:text-8xl leading-[0.95] mb-8 font-serif">
-            Bring Nature <br />
-            <span className="italic font-light">Into Your Home</span>
+            Bawa Alam <br />
+            <span className="italic font-light">Ke Rumah Anda</span>
           </h1>
           <p className="text-sm md:text-base font-light opacity-90 mb-10 leading-relaxed max-w-sm">
-            Merging modern aesthetics with raw, organic materials to create spaces that breathe and inspire calm in every corner.
+            Memadukan estetika modern dengan material organik untuk menciptakan ruang yang menenangkan di setiap sudut.
           </p>
           <div className="flex flex-wrap gap-4">
             <button className="btn-primary bg-white-warm text-olive hover:bg-cream hover:text-olive shadow-2xl">
-              Discover Collection
+              Lihat Koleksi
             </button>
             <button className="px-8 py-3 rounded-full border border-white/30 backdrop-blur-md text-white-warm text-[10px] uppercase font-bold tracking-widest hover:bg-white/10 transition-all">
-              View Lookbook
+              Buku Gaya
             </button>
           </div>
         </motion.div>
       </div>
 
       <div className="absolute top-12 right-12 w-28 h-28 rounded-full border border-white/20 flex items-center justify-center text-white-warm text-[9px] uppercase tracking-[0.2em] text-center backdrop-blur-sm hidden md:flex leading-relaxed">
-        Eco Living<br />Est. 2024
+        Eco Living<br />Sejak 2024
       </div>
     </section>
   );
@@ -208,22 +211,22 @@ const Philosophy = () => (
         transition={{ duration: 0.8 }}
         className="glass-card !bg-white-warm dark:!bg-dark-moss p-12 md:p-20"
       >
-        <span className="text-olive text-[10px] uppercase tracking-[0.3em] font-bold mb-6 block">Philosophy</span>
-        <h2 className="text-4xl md:text-5xl leading-tight mb-8 font-serif text-olive">Conscious Craftsmanship for a Balanced Life</h2>
+        <span className="text-olive text-[10px] uppercase tracking-[0.3em] font-bold mb-6 block">Filosofi</span>
+        <h2 className="text-4xl md:text-5xl leading-tight mb-8 font-serif text-olive">Keahlian Sadar untuk Hidup Seimbang</h2>
         <p className="text-sm md:text-base text-gray-500 dark:text-cream/60 mb-8 leading-relaxed">
-          We believe furniture should be an extension of the earth. Our pieces are hand-finished using sustainable solid woods, non-toxic plant oils, and time-honored techniques that respect the material's integrity.
+          Kami percaya mebel harus menjadi perpanjangan dari alam. Setiap karya kami diselesaikan dengan tangan menggunakan kayu solid berkelanjutan dan minyak nabati non-toksik yang menghormati integritas material.
         </p>
         <div className="space-y-4 mb-10">
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-wood"></div>
-            <span className="text-[11px] font-medium opacity-70">Ethically salvaged timber</span>
+            <span className="text-[11px] font-medium opacity-70">Kayu ek yang diselamatkan</span>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-olive"></div>
-            <span className="text-[11px] font-medium opacity-70">Zero-waste manufacturing</span>
+            <span className="text-[11px] font-medium opacity-70">Manufaktur tanpa limbah</span>
           </div>
         </div>
-        <button className="btn-outline">Explore Mission</button>
+        <button className="btn-outline">Eksplorasi Misi</button>
       </motion.div>
       
       <motion.div 
@@ -235,7 +238,7 @@ const Philosophy = () => (
       >
         <img 
           src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=1000" 
-          alt="Crafting Process" 
+          alt="Proses Pembuatan" 
           className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000"
           referrerPolicy="no-referrer"
         />
@@ -273,7 +276,7 @@ const ProductCard = ({ product }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               src={product.texture} 
-              alt="Texture detail" 
+              alt="Detail tekstur" 
               className="w-full h-full object-cover scale-110"
               referrerPolicy="no-referrer"
             />
@@ -292,7 +295,7 @@ const ProductCard = ({ product }) => {
         </div>
         <p className="text-[11px] text-gray-500 dark:text-cream/40 leading-relaxed">{product.description}</p>
         <div className="flex justify-between items-center pt-4 mt-4 border-t border-olive/5">
-          <button className="text-[10px] uppercase tracking-widest font-bold text-wood hover:text-olive transition-colors">Details</button>
+          <button className="text-[10px] uppercase tracking-widest font-bold text-wood hover:text-olive transition-colors">Detail</button>
           <div className="w-7 h-7 rounded-full border border-olive/20 flex items-center justify-center text-olive group-hover:bg-olive group-hover:text-white transition-all cursor-pointer">
             <ArrowRight size={14} />
           </div>
@@ -303,10 +306,10 @@ const ProductCard = ({ product }) => {
 };
 
 const ProductShowcase = () => (
-  <section id="collection" className="py-24 bg-white-warm dark:bg-dark-moss/20 px-6">
+  <section id="koleksi" className="py-24 bg-white-warm dark:bg-dark-moss/20 px-6">
     <div className="max-w-7xl mx-auto text-center mb-16">
-      <h2 className="text-5xl mb-4">Curated Collection</h2>
-      <p className="text-olive-dark/60 dark:text-cream/60 max-w-lg mx-auto italic">Each piece tells a story of the forest and the hands that shaped it.</p>
+      <h2 className="text-5xl mb-4 font-serif">Koleksi Terpilih</h2>
+      <p className="text-olive-dark/60 dark:text-cream/60 max-w-lg mx-auto italic">Setiap potong menceritakan kisah hutan dan tangan yang membentuknya.</p>
     </div>
     <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
       {PRODUCTS.map((product) => (
@@ -323,33 +326,33 @@ const MaterialHighlight = () => (
       <div className="relative order-2 md:order-1">
         <div className="grid grid-cols-2 gap-6">
           <div className="image-placeholder aspect-square rounded-[2rem] shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Premium Wood Texture" referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Kayu Premium" referrerPolicy="no-referrer" />
           </div>
           <div className="image-placeholder aspect-[3/4] rounded-[2rem] shadow-2xl mt-12">
-            <img src="https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Organic Fabric Texture" referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Kain Organik" referrerPolicy="no-referrer" />
           </div>
         </div>
       </div>
 
       <div className="order-1 md:order-2">
-        <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-60 mb-6 block">Materials</span>
-        <h2 className="text-5xl md:text-6xl mb-10 font-serif leading-tight">Sustainability in <br /><span className="italic font-light opacity-80">Every Fiber</span></h2>
+        <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-60 mb-6 block">Material Kami</span>
+        <h2 className="text-5xl md:text-6xl mb-10 font-serif leading-tight">Keberlanjutan dalam <br /><span className="italic font-light opacity-80">Setiap Serat</span></h2>
         <div className="space-y-6">
           <div className="flex items-center gap-6">
             <div className="w-2.5 h-2.5 rounded-full bg-wood shadow-sm"></div>
-            <span className="text-sm md:text-base font-light tracking-wide">Certified Solid Oak & Walnut</span>
+            <span className="text-sm md:text-base font-light tracking-wide">Kayu Oak & Walnut Solid Bersertifikat</span>
           </div>
           <div className="flex items-center gap-6">
             <div className="w-2.5 h-2.5 rounded-full bg-[#A8B49E] shadow-sm"></div>
-            <span className="text-sm md:text-base font-light tracking-wide">Bamboo Root Composite</span>
+            <span className="text-sm md:text-base font-light tracking-wide">Komposit Akar Bambu</span>
           </div>
           <div className="flex items-center gap-6">
             <div className="w-2.5 h-2.5 rounded-full bg-white/40 shadow-sm"></div>
-            <span className="text-sm md:text-base font-light tracking-wide">100% Recycled Eco-Fabric</span>
+            <span className="text-sm md:text-base font-light tracking-wide">100% Kain Eco Daur Ulang</span>
           </div>
         </div>
         <p className="mt-12 text-sm opacity-70 leading-relaxed max-w-sm">
-          We source only from forests where growth exceeds harvest, ensuring our footprint leads to a greener future.
+          Kami hanya mengambil material dari hutan di mana pertumbuhan melebihi panen, memastikan jejak kami menuju masa depan yang lebih hijau.
         </p>
       </div>
     </div>
@@ -357,16 +360,16 @@ const MaterialHighlight = () => (
 );
 
 const RoomInspiration = () => (
-  <section id="spaces" className="py-32 px-6 max-w-7xl mx-auto">
+  <section id="ruang" className="py-32 px-6 max-w-7xl mx-auto">
     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
       <div>
         <div className="flex items-center gap-4 mb-4">
           <div className="w-10 h-[1px] bg-olive"></div>
-          <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-olive">Room Inspiration</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-olive">Inspirasi Ruangan</span>
         </div>
-        <h2 className="text-5xl md:text-6xl max-w-lg font-serif">Designed for <span className="italic font-light">Stillness</span></h2>
+        <h2 className="text-5xl md:text-6xl max-w-lg font-serif">Didesain untuk <span className="italic font-light">Ketenangan</span></h2>
       </div>
-      <button className="text-[10px] font-bold tracking-[0.2em] uppercase border-b border-olive pb-2 hover:opacity-60 transition-opacity">View Sanctuary Gallery</button>
+      <button className="text-[10px] font-bold tracking-[0.2em] uppercase border-b border-olive pb-2 hover:opacity-60 transition-opacity">Lihat Galeri Santuari</button>
     </div>
     
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -404,10 +407,10 @@ const Testimonials = () => (
         {[1,2,3,4,5].map(i => <Leaf key={i} size={16} fill="currentColor" />)}
       </div>
       <blockquote className="text-3xl md:text-5xl font-serif italic mb-12 leading-tight">
-        "Walking into my home now feels like stepping into a sanctuary. The quality of the oak is unlike anything else—you can feel the soul of the wood."
+        "Masuk ke rumah saya sekarang terasa seperti melangkah ke dalam tempat perlindungan. Kualitas kayu eknya tidak tertandingi—Anda bisa merasakan jiwa dari kayu tersebut."
       </blockquote>
       <cite className="not-italic text-sm tracking-[0.2em] font-bold uppercase text-olive-dark/60 dark:text-cream/60">
-        — Elena Vance, Architectural Designer
+        — Elena Vance, Desainer Arsitektur
       </cite>
     </div>
   </section>
@@ -423,14 +426,14 @@ const Footer = () => (
           </div>
           <span className="serif text-xl font-semibold tracking-tight text-olive">TerraForma Living</span>
         </div>
-        <p className="text-[10px] text-gray-400 font-light max-w-xs uppercase tracking-widest">© 2024 TerraForma Living — All rights reserved</p>
+        <p className="text-[10px] text-gray-400 font-light max-w-xs uppercase tracking-widest">© 2024 TerraForma Living — Hak Cipta Dilindungi</p>
       </div>
 
       <nav className="flex flex-wrap justify-center gap-10 text-[10px] uppercase tracking-[0.2em] font-bold opacity-60">
-        <a href="#" className="hover:text-olive hover:opacity-100">Collection</a>
-        <a href="#" className="hover:text-olive hover:opacity-100">Sustainability</a>
-        <a href="#" className="hover:text-olive hover:opacity-100">Spaces</a>
-        <a href="#" className="hover:text-olive hover:opacity-100">Journal</a>
+        <a href="#" className="hover:text-olive hover:opacity-100">Koleksi</a>
+        <a href="#" className="hover:text-olive hover:opacity-100">Keberlanjutan</a>
+        <a href="#" className="hover:text-olive hover:opacity-100">Ruang</a>
+        <a href="#" className="hover:text-olive hover:opacity-100">Jurnal</a>
       </nav>
 
       <div className="flex gap-6 items-center">
@@ -446,6 +449,7 @@ const Footer = () => (
 export default function App() {
   const [isDark, setIsDark] = useState(false);
   const [isSoundOn, setIsSoundOn] = useState(false);
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -458,9 +462,8 @@ export default function App() {
 
   useEffect(() => {
     if (isSoundOn) {
-      // Background nature ambience (soft forest wind)
       if (!audioRef.current) {
-        audioRef.current = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'); // Fallback placeholder
+        audioRef.current = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
         audioRef.current.loop = true;
         audioRef.current.volume = 0.05;
       }
@@ -487,7 +490,7 @@ export default function App() {
         <RoomInspiration />
         <Testimonials />
         
-        {/* Final CTA */}
+        {/* Kontribusi Akhir */}
         <section className="py-32 px-6">
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
@@ -495,9 +498,9 @@ export default function App() {
             className="max-w-5xl mx-auto bg-olive rounded-[3rem] p-12 md:p-24 text-center text-white-warm overflow-hidden relative"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-            <h2 className="text-4xl md:text-7xl mb-8 relative z-10 leading-tight">Create your personal <br /> <span className="italic font-light">Peaceful Space</span></h2>
+            <h2 className="text-4xl md:text-7xl mb-8 relative z-10 leading-tight font-serif">Mulai Ciptakan <br /> <span className="italic font-light">Ruang Tenang Anda</span></h2>
             <button className="bg-white text-olive px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform relative z-10">
-              Start Designing
+              Mulai Mendesain
             </button>
           </motion.div>
         </section>
