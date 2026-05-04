@@ -66,9 +66,9 @@ const MATERIALS = [
 ];
 
 const ROOMS = [
-  { title: "Living Sanctuary", image: "https://images.unsplash.com/photo-1616489953149-8c7639199347?q=80&w=1000", size: "tall" },
+  { title: "Living Sanctuary", image: "https://images.unsplash.com/photo-1617103996702-96ff29b1c467?q=80&w=1200", size: "tall" },
   { title: "Quiet Workspace", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000", size: "wide" },
-  { title: "Restful Retreatment", image: "https://images.unsplash.com/photo-1505691938895-1758d7eaa511?q=80&w=1000", size: "square" },
+  { title: "Restful Retreatment", image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200", size: "square" },
   { title: "Natural Dining", image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?q=80&w=1000", size: "tall" }
 ];
 
@@ -153,13 +153,13 @@ const Hero = () => {
       <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 image-placeholder">
           <img 
-            src="https://images.unsplash.com/photo-1616489953149-8c7639199347?q=80&w=1920" 
-            alt="Natural Living" 
-            className="w-full h-full object-cover brightness-95"
+            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000" 
+            alt="TerraForma Natural Living" 
+            className="w-full h-full object-cover brightness-90"
             referrerPolicy="no-referrer"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-earth/40 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-earth/50 via-transparent to-transparent"></div>
       </motion.div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-10 w-full">
@@ -323,10 +323,10 @@ const MaterialHighlight = () => (
       <div className="relative order-2 md:order-1">
         <div className="grid grid-cols-2 gap-6">
           <div className="image-placeholder aspect-square rounded-[2rem] shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1516147343209-787095689100?q=80&w=800" className="w-full h-full object-cover" alt="Wood Texture" referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Premium Wood Texture" referrerPolicy="no-referrer" />
           </div>
           <div className="image-placeholder aspect-[3/4] rounded-[2rem] shadow-2xl mt-12">
-            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=800" className="w-full h-full object-cover" alt="Fabric Texture" referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=1200" className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700" alt="Organic Fabric Texture" referrerPolicy="no-referrer" />
           </div>
         </div>
       </div>
